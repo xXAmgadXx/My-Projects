@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+
+class UserProfile {
+late  String username;
+late  String phoneNumber;
+late  String dateOfBirth;
+late  String petName;
+late  String petType;
+late  String gender;
+late  String datOfB;
+late  String weight;
+late  String allergies;
+late String rabiesVac;
+late String disease;
+late  String surgeries;
+late  String favouriteFood;
+late  String vetName;
+late  String vetNumber;
+late String vetAddress;
+
+UserProfile(
+  {
+    this.username='',
+     this.phoneNumber='',
+     this.dateOfBirth='',
+     this.petName='',
+     this.petType='',
+     this.gender='',
+     this.datOfB='',
+     this.weight='',
+     this.allergies='',
+     this.rabiesVac='',
+     this.disease='',
+     this.surgeries='',
+     this.favouriteFood='',
+     this.vetName='',
+     this.vetNumber='',
+     this.vetAddress=''
+  }
+  
+);
+ Map<String, dynamic> toMap() {
+  return {
+    'username': username,
+    'phoneNumber': phoneNumber,
+    'dateOfBirth': dateOfBirth,
+    'petName': petName,
+    'petType': petType,
+    'gender': gender,
+    'datOfB': datOfB,
+    'weight': weight,
+    'allergies': allergies,
+    'rabiesVac': rabiesVac,
+    'disease': disease,
+    'surgeries': surgeries,
+    'favouriteFood': favouriteFood,
+    'vetName': vetName,
+    'vetNumber': vetNumber,
+    'vetAddress': vetAddress,
+  };
+}
+ 
+
+
+     
+      
+}

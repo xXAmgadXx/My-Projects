@@ -1,0 +1,110 @@
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
+class UserProfilePage extends StatelessWidget {
+  final DocumentSnapshot<Map<String, dynamic>> profileSnapshot;
+
+  UserProfilePage({required this.profileSnapshot});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: const Text('User Information'),
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'User Name :', value: profileSnapshot['username']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Phone Number :', value: profileSnapshot['phoneNumber']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Date Of Birth :', value: profileSnapshot['dateOfBirth']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet Name :', value: profileSnapshot['petName']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet Type :', value: profileSnapshot['petType']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet gender :', value: profileSnapshot['gender']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet Date Of Birth :', value: profileSnapshot['datOfB']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet weight :', value: profileSnapshot['weight']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet allergies :', value: profileSnapshot['allergies']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet rabiesVac :', value: profileSnapshot['rabiesVac']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet diseases :', value: profileSnapshot['disease']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet surgeries :', value: profileSnapshot['surgeries']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Pet Favourite Food :', value: profileSnapshot['favouriteFood']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Vet Name :', value: profileSnapshot['vetName']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Vet Address :', value: profileSnapshot['vetAddress']),
+              const SizedBox(height: 5),
+              _buildUserInfo(label: 'Vet Number :', value: profileSnapshot['vetNumber']),
+
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+  Widget _buildUserInfo({required String label, required String value}) {
+      return Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        padding: const EdgeInsets.all(16.0),
+        margin: const EdgeInsets.only(bottom: 20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start, // Align labels and values to the start (left)
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 180.0, // Adjust the width as needed
+              child: Text(
+                label,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                  color: Colors.blue, // Set label text color
+                ),
+              ),
+            ),
+            SizedBox(width: 8.0),
+            Expanded(
+              child: Text(
+                value,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black, // Set value text color
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+}
+
